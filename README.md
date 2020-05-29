@@ -183,6 +183,32 @@ void onActiveTalkerList(JSONObject jsonObject){
         public void onCanvasStopped(EnxStream enxStream);
     ``` 
     
+    
+ ### Exploring the sample app
+   Join Screen :- On this screen user creates the roomID, and share this roomID to other end user who has to join this room.
+   
+    ![home](./home.jpg)  
+    
+Here in this screen 2nd participant joins into the same room. On Top of the screen, option button is available to start the  canvas.
+       
+       
+   ![conf1](./conf1.jpg) 
+   
+Once user clicks start canvas, a white page will open, where user can draw, add interactive buttons or play a video etc. In this example we will change the canvas  color and its name on "Change color button tap"
+
+![conf2](./conf2.jpg)   ![rec1](./rec1.jpg) 
+    
+Changed color from white to Red.
+
+   ![conf3](./conf3.jpg)   ![rec2](./rec2.jpg) 
+
+Changed color from Red to Blue.
+
+   ![conf4](./conf4.jpg)   ![rec3](./rec3.jpg)
+   ![conf5](./conf5.jpg)   ![rec3](./rec4.jpg)
+    
+As you can see once any user starts the canvas, users in same room views the activity on the canvas, based on the interactive actions initiated from canvas owner.
+
 ## 5 Demo
 
 Visit Demo Zone (https://portal.enablex.io/demo-zone/) to request a Guided Demo or Demo Access to different type of application available there.
