@@ -14,18 +14,19 @@ This App creates a virtual Room on the fly  hosted on the Enablex platform using
 #### 1.1.1 App Id and App Key 
 
 * Register with EnableX [https://www.enablex.io] 
-* Create your Application
+* Login to the EnableX Portal
+* Create your Application Key
 * Get your App ID and App Key delivered to your Email
 
 
 #### 1.1.2 Sample Android Client 
 
-* Clone or download this Repository [https://github.com/EnableX/Multiparty-Video-Chat-Application-Sample-for-Android.git] 
+* Clone or download this Repository [https://github.com/EnableX/One-to-One-Video-Chat-With-Canvas-Webrtc-Application-Sample-for-Android.git] 
 
 
 #### 1.1.3 Sample App Server 
 
-* Clone or download this Repository [https://github.com/EnableX/Video-Conferencing-Open-Source-Web-Application-Sample.git] & follow the steps further 
+* Clone or download this Repository [https://github.com/EnableX/One-to-One-Video-Chat-With-Canvas-Webrtc-Application-Sample-for-Android.git] & follow the steps further 
 * You need to use App ID and App Key to run this Service. 
 * Your Android Client End Point needs to connect to this Service to create Virtual Room.
 * Follow README file of this Repository to setup the Service.
