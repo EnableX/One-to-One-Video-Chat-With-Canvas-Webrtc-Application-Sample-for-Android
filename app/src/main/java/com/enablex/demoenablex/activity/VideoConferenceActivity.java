@@ -10,7 +10,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
@@ -33,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import enx_rtc_android.Controller.EnxActiveTalkerViewObserver;
 import enx_rtc_android.Controller.EnxCanvasObserver;
 import enx_rtc_android.Controller.EnxPlayerView;
 import enx_rtc_android.Controller.EnxReconnectObserver;
@@ -44,7 +47,7 @@ import enx_rtc_android.Controller.EnxStreamObserver;
 
 
 public class VideoConferenceActivity extends AppCompatActivity
-        implements EnxRoomObserver, EnxStreamObserver, View.OnClickListener, EnxReconnectObserver, EnxCanvasObserver {
+        implements EnxRoomObserver, EnxStreamObserver, View.OnClickListener, EnxReconnectObserver, EnxCanvasObserver, EnxActiveTalkerViewObserver {
     EnxRtc enxRtc;
     String token;
     String name;
@@ -98,6 +101,7 @@ public class VideoConferenceActivity extends AppCompatActivity
             enxRooms.publish(localStream);
             enxRooms.setReconnectObserver(this);
             enxRooms.setCanvasObserver(this);
+            enxRoom.setActiveTalkerViewObserver(this::onActiveTalkerList);
         }
     }
 
@@ -153,9 +157,24 @@ public class VideoConferenceActivity extends AppCompatActivity
         this.finish();
     }
 
+    RecyclerView mRecyclerView;
+
+    @Override
+    public void onActiveTalkerList(RecyclerView recyclerView) {
+        mRecyclerView = recyclerView;
+        if (recyclerView == null) {
+            participant.removeAllViews();
+
+        } else {
+            participant.removeAllViews();
+            participant.addView(recyclerView);
+
+        }
+    }
+
     @Override
     public void onActiveTalkerList(JSONObject jsonObject) {
-        Toast.makeText(this, "onActiveTalkerList", Toast.LENGTH_SHORT).show();
+       /* Toast.makeText(this, "onActiveTalkerList", Toast.LENGTH_SHORT).show();
         Log.e("onActiveTalkerList", jsonObject.toString());
         if (canvasRunning) {
             try {
@@ -215,7 +234,7 @@ public class VideoConferenceActivity extends AppCompatActivity
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
@@ -556,9 +575,24 @@ public class VideoConferenceActivity extends AppCompatActivity
     public JSONObject getReconnectInfo() {
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("allow_reconnect", true);
-            jsonObject.put("number_of_attempts", 3);
-            jsonObject.put("timeout_interval", 15);
+            jsonObject.put("allow_reconnect",true);
+            jsonObject.put("number_of_attempts",3);
+            jsonObject.put("timeout_interval",15);
+            jsonObject.put("activeviews","view");//view
+
+            JSONObject object = new JSONObject();
+            object.put("audiomute",true);
+            object.put("videomute",true);
+            object.put("bandwidth",true);
+            object.put("screenshot",true);
+            object.put("avatar",true);
+
+            object.put("iconColor", getResources().getColor(R.color.colorPrimary));
+            object.put("iconHeight",30);
+            object.put("iconWidth",30);
+            object.put("avatarHeight",200);
+            object.put("avatarWidth",200);
+            jsonObject.put("playerConfiguration",object);
         } catch (Exception e) {
             e.printStackTrace();
         }
