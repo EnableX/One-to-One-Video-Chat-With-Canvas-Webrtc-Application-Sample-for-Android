@@ -54,7 +54,7 @@ This App creates a virtual Room on the fly  hosted on the Enablex platform using
 
 Note: Only one user with Moderator Role allowed to connect to a Virtual Room.
 
-
+Note:- If you used any emulator/simulator your local stream will not create. It will create only on real device.
   
 ## 2 Server API
 
