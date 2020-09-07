@@ -1,4 +1,4 @@
-# 1-to-1 RTC: A Sample Android App with EnableX Android Toolkit
+# 1-to-1 RTC: A Sample Android App with Canvas sharing by EnableX Android Toolkit
 
 The sample Android App demonstrates the use of EnableX (https://www.enablex.io) platform Server APIs and Android Toolkit to build 1-to-1 RTC (Real Time Communication) Application.  It allows developers to ramp up on app development by hosting on their own devices. 
 
