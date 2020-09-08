@@ -6,12 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".activity.VideoConferenceActivity">
 
+    <FrameLayout
+        android:id="@+id/canvas_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="#000000" />
 
     <FrameLayout
         android:id="@+id/participant"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/canvas_share"
         android:background="#000000" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
