@@ -7,13 +7,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
@@ -34,7 +34,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import enx_rtc_android.Controller.EnxActiveTalkerViewObserver;
 import enx_rtc_android.Controller.EnxCanvasObserver;
@@ -171,12 +170,6 @@ public class VideoConferenceActivity extends AppCompatActivity
             participant.addView(recyclerView);
 
         }
-    }
-
-    @Override
-    public void onActiveTalkerList(JSONObject jsonObject) {
-       /* Toast.makeText(this, "onActiveTalkerList", Toast.LENGTH_SHORT).show();*/
-       // Deprecated
     }
 
     @Override
@@ -626,10 +619,6 @@ public class VideoConferenceActivity extends AppCompatActivity
         Toast.makeText(this, "Reconnect Success", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onCanvasStarted(JSONObject jsonObject) {
-        // Deprecated
-    }
 
     @Override
     public void onCanvasStarted(EnxStream enxStream) {
@@ -642,16 +631,16 @@ public class VideoConferenceActivity extends AppCompatActivity
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                enxRooms.adjustLayout();
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                int screenWidth = displayMetrics.widthPixels;
+                int screenHeight = displayMetrics.heightPixels;
+                enxRooms.adjustLayout(screenWidth,screenHeight);
             }
         }, 3000);
 
     }
 
-    @Override
-    public void onCanvasStopped(JSONObject jsonObject) {
-        // Deprecated
-    }
 
     @Override
     public void onCanvasStopped(EnxStream enxStream) {
@@ -662,7 +651,11 @@ public class VideoConferenceActivity extends AppCompatActivity
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                enxRooms.adjustLayout();
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                int screenWidth = displayMetrics.widthPixels;
+                int screenHeight = displayMetrics.heightPixels;
+                enxRooms.adjustLayout(screenWidth,screenHeight);
             }
         }, 3000);
     }
@@ -678,5 +671,20 @@ public class VideoConferenceActivity extends AppCompatActivity
         change_color.setVisibility(View.GONE);
         canvas.setText("Start Canvas");
         canvas_view.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onAckPinUsers(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onAckUnpinUsers(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onPinnedUsers(JSONObject jsonObject) {
+
     }
 }

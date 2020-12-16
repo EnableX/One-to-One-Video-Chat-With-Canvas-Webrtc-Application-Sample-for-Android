@@ -59,7 +59,7 @@
                 android:maxLines="1"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:text="Rashi"
+                android:text=""
                 android:textColor="#757575"
                 android:textColorHint="#757575"
                 android:textSize="14sp"/>
@@ -77,7 +77,7 @@
                 android:maxLines="1"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:text="5e5607075940c20ad8f824f1"
+                android:text=""
                 android:textColor="#757575"
                 android:textColorHint="#757575"
                 android:textSize="14sp"/>
