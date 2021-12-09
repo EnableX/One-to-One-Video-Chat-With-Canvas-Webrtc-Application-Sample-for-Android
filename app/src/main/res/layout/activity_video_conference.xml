@@ -59,40 +59,42 @@
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
         android:background="@drawable/items_background"
         android:padding="5dp">
 
         <ImageView
             android:id="@+id/mute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/toolbar_icon_width"
+            android:layout_height="@dimen/toolbar_icon_height"
             android:layout_weight="1"
             android:src="@drawable/mute" />
 
         <ImageView
             android:id="@+id/video"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/toolbar_icon_width"
+            android:layout_height="@dimen/toolbar_icon_height"
             android:layout_weight="1"
             android:src="@drawable/ic_videocam" />
 
         <ImageView
             android:id="@+id/camera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/toolbar_icon_width"
+            android:layout_height="@dimen/toolbar_icon_height"
             android:layout_weight="1"
             android:src="@drawable/front_camera" />
 
         <ImageView
             android:id="@+id/volume"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/toolbar_icon_width"
+            android:layout_height="@dimen/toolbar_icon_height"
             android:layout_weight="1"
             android:src="@drawable/volume_on" />
     </LinearLayout>

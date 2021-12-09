@@ -520,8 +520,8 @@ public class VideoConferenceActivity extends AppCompatActivity
             object.put("avatar",true);
 
             object.put("iconColor", getResources().getColor(R.color.colorPrimary));
-            object.put("iconHeight",30);
-            object.put("iconWidth",30);
+            object.put("iconHeight",27);
+            object.put("iconWidth",27);
             object.put("avatarHeight",200);
             object.put("avatarWidth",200);
             jsonObject.put("playerConfiguration",object);
