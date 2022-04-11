@@ -211,6 +211,6 @@ As you can see once any user starts the canvas, users in same room views the act
 
 ## 5 Trial
 
-Try a quick Video Call: https://try.enablex.io/
+Try a quick Video Call: https://try.enablex.io/ <br/>
 Sign up for a free trial https://portal.enablex.io/cpaas/trial-sign-up/
 
