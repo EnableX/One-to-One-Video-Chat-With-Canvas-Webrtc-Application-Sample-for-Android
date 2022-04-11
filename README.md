@@ -1,34 +1,33 @@
 # 1-to-1 RTC: A Sample Android App with EnableX Android Toolkit
 
-The sample Android App demonstrates the use of EnableX (https://www.enablex.io/cpaas/video-api) platform Server APIs and Android Toolkit to build 1-to-1 RTC (Real Time Communication) Application.  It allows developers to ramp up on app development by hosting on their own devices. 
+The sample Android App demonstrates the use of [EnableX platform Server APIs](https://www.enablex.io/developer/video-api/server-api) and [Android Toolkit](https://www.enablex.io/developer/video-api/client-api/android-toolkit/) to build 1-to-1 RTC (Real-Time Communication) Application.  It allows developers to ramp up on app development by hosting on their own devices. 
 
-This App creates a virtual Room on the fly  hosted on the Enablex platform using REST calls and uses the Room credentials (i.e. Room Id) to connect to the virtual Room as a Moderator or Participant using a mobile client.  The same Room credentials can be shared with others to join the same virtual Room to carry out a RTC (Real Time Communication) session. 
+This App creates a virtual Room on the fly  hosted on the Enablex platform using REST calls and uses the Room credentials (i.e. Room Id) to connect to the virtual Room as a Moderator or Participant using a mobile client.  The same Room credentials can be shared with others to join the same virtual Room to carry out an RTC (Real-Time Communication) session. 
 
 > EnableX Developer Center: https://developer.enablex.io/
 
 
 ## 1. How to get started
 
-### 1.1 Pre-Requisites
+### 1.1 Prerequisites
 
 #### 1.1.1 App Id and App Key 
 
 * Register with EnableX [https://portal.enablex.io/cpaas/trial-sign-up/] 
-* Login to the EnableX Portal
-* Create your Application Key
-* Get your App ID and App Key delivered to your Email
+* Create your Application
+* Get your App ID and App Key delivered to your email
 
 
 #### 1.1.2 Sample Android Client 
 
-* Clone or download this Repository [https://github.com/EnableX/One-to-One-Video-Chat-With-Canvas-Webrtc-Application-Sample-for-Android.git] 
+* [Clone or download this Repository](https://github.com/EnableX/One-to-One-Video-Chat-With-Canvas-Webrtc-Application-Sample-for-Android.git)
 
 
 #### 1.1.3 Sample App Server 
 
-* Clone or download this Repository [https://github.com/EnableX/One-to-One-Video-Chat-With-Canvas-Webrtc-Application-Sample-for-Android.git] & follow the steps further 
+* [Clone or download this Repository](https://github.com/EnableX/One-to-One-Video-Chat-Sample-Web-Application) & follow the steps further 
 * You need to use App ID and App Key to run this Service. 
-* Your Android Client End Point needs to connect to this Service to create Virtual Room.
+* Your Android Client EndPoint needs to connect to this Service to create Virtual Room.
 * Follow README file of this Repository to setup the Service.
 
 
@@ -50,49 +49,49 @@ This App creates a virtual Room on the fly  hosted on the Enablex platform using
 
 * Open the App in your Device. You get a form to enter Credentials i.e. Name & Room Id.
 * You need to create a Room by clicking the "Create Room" button.
-* Once the Room Id is created, you can use it and share with others to connect to the Virtual Room to carry out a RTC Session either as a Moderator or a Participant (Choose applicable Role in the Form).
+* Once the Room Id is created, you can use it and share with others to connect to the Virtual Room to carry out an RTC Session either as a Moderator or a Participant (Choose applicable Role in the Form).
 
 Note: Only one user with Moderator Role allowed to connect to a Virtual Room.
 
-Note:- If you used any emulator/simulator your local stream will not create. It will create only on real device.
+Note:- In case of emulator/simulator your local stream will not create. It will create only on real device.
   
-## 2 Server API
+## 2. Server API
 
 EnableX Server API is a Rest API service meant to be called from Partners' Application Server to provision video enabled 
 meeting rooms. API Access is given to each Application through the assigned App ID and App Key. So, the App ID and App Key 
 are to be used as Username and Password respectively to pass as HTTP Basic Authentication header to access Server API.
  
 For this application, the following Server API calls are used: 
-* https://developer.enablex.io/latest/server-api/rooms-route/#get-rooms - To get list of Rooms
-* https://developer.enablex.io/latest/server-api/rooms-route/#get-room-info - To get information of the given Room
-* https://developer.enablex.io/latest/server-api/rooms-route/#create-token - To create Token for the given Room
+* https://www.enablex.io/developer/video-api/server-api/rooms-route/#get-rooms - To get list of Rooms
+* https://www.enablex.io/developer/video-api/server-api/rooms-route/#get-room-info - To get information of the given Room
+* https://www.enablex.io/developer/video-api/server-api/rooms-route/#create-token - To create Token for the given Room
 
 To know more about Server API, go to:
-https://developer.enablex.io/latest/server-api/
+https://www.enablex.io/developer/video-api/server-api
 
 
-## 3 Android Toolkit
+## 3. Android Toolkit
 
 Android App to use Android Toolkit to communicate with EnableX Servers to initiate and manage Real Time Communications.  
 
-* Documentation: https://developer.enablex.io/latest/client-api/Android-toolkit/
-* Download: https://developer.enablex.io/resources/downloads/#Android-toolkit
+* Documentation: https://www.enablex.io/developer/video-api/client-api/android-toolkit/
+* Download: https://www.enablex.io/developer/video-api/client-api/android-toolkit/
 
 
-## 4 Application Walk-through
+## 4. Application Walk-through
 
 ### 4.1 Create Token
 
 We create a Token for a Room Id to get connected to EnableX Platform to connect to the Virtual Room to carry out a RTC Session.
 
 To create Token, we make use of Server API. Refer following documentation:
-https://developer.enablex.io/latest/server-api/rooms-route/#create-token
+https://www.enablex.io/developer/video-api/server-api/rooms-route/#create-token
 
 
 ### 4.2 Connect to a Room, Initiate & Publish Stream
 
 We use the Token to get connected to the Virtual Room. Once connected, we intiate local stream and publish into the room. Refer following documentation for this process:
-https://developer.enablex.io/latest/client-api/Android-toolkit/enxrtc/
+https://www.enablex.io/developer/video-api/client-api/android-toolkit/room-connection/#connect-room
 
 
 
@@ -109,7 +108,7 @@ localStream!!.attachRenderer(enxPlayerView)
 // Add Player to View
 yourView?.addView(enxPlayerView)
   ```
-More on Player: https://developer.enablex.io/latest/client-api/android-toolkit/basic-functions/#play-stream
+More on Player: https://www.enablex.io/developer/video-api/client-api/android-toolkit/play-stream/
 
 ### 4.4 Handle Server Events
 
@@ -145,7 +144,7 @@ void onStreamAdded(EnxStream stream){
 /* Call Back Method: onActiveTalkerList
  To handle any time Active Talker list is updated */
   
-void onActiveTalkerList(JSONObject jsonObject){
+void onActiveTalkerList(List<EnxStream> enxStreamList){
     /* Handle Stream Players */
 }
 ```
@@ -166,7 +165,7 @@ void onActiveTalkerList(JSONObject jsonObject){
             Here user needs to pass the view, which he/she wants to publish as another stream into the room over the canvas channel. 
             */
         Stop Canvas
-           public void startCanvas();
+           public void stopCanvas();
     ``` 
     Delegates:
     ``` 
@@ -185,7 +184,7 @@ void onActiveTalkerList(JSONObject jsonObject){
     ``` 
     
     
- ### Exploring the sample app
+ ## 5. Exploring the sample app
    Join Screen :- On this screen user creates the roomID, and share this roomID to other end user who has to join this room.
    
     ![home](./home.jpg)  
