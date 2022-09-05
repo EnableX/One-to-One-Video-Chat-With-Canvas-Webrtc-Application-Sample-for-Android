@@ -101,7 +101,7 @@ public class VideoConferenceActivity extends AppCompatActivity
             enxRooms.publish(localStream);
             enxRooms.setReconnectObserver(this);
             enxRooms.setCanvasObserver(this);
-            enxRoom.setActiveTalkerViewObserver(this::onActiveTalkerList);
+            enxRoom.setActiveTalkerViewObserver(this::onActiveTalkerView);
         }
     }
 
@@ -160,7 +160,7 @@ public class VideoConferenceActivity extends AppCompatActivity
     RecyclerView mRecyclerView;
 
     @Override
-    public void onActiveTalkerList(RecyclerView recyclerView) {
+    public void onActiveTalkerView(RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
         if (recyclerView == null) {
             participant.removeAllViews();
@@ -201,6 +201,11 @@ public class VideoConferenceActivity extends AppCompatActivity
     @Override
     public void onUserDataReceived(JSONObject jsonObject) {
         // received when custom data received at room
+    }
+
+    @Override
+    public void onUserStartTyping(boolean b) {
+
     }
 
     @Override
@@ -725,6 +730,26 @@ public class VideoConferenceActivity extends AppCompatActivity
 
     @Override
     public void onRoomBandwidthAlert(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onStopAllSharingACK(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onACKStartLiveTranscription(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onACKStopLiveTranscription(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onTranscriptionEvents(JSONObject jsonObject) {
 
     }
 }
