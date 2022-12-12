@@ -1,5 +1,4 @@
 package com.enablex.demoenablex.activity;
-
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -12,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
@@ -738,18 +736,5 @@ public class VideoConferenceActivity extends AppCompatActivity
 
     }
 
-    @Override
-    public void onACKStartLiveTranscription(JSONObject jsonObject) {
 
-    }
-
-    @Override
-    public void onACKStopLiveTranscription(JSONObject jsonObject) {
-
-    }
-
-    @Override
-    public void onTranscriptionEvents(JSONObject jsonObject) {
-
-    }
 }
