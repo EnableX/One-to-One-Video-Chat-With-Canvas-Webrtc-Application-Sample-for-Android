@@ -95,11 +95,13 @@ public class VideoConferenceActivity extends AppCompatActivity
     public void onRoomConnected(EnxRoom enxRoom, JSONObject jsonObject) {
         //received when user connected with Enablex room
         enxRooms = enxRoom;
-        if (enxRooms != null) {
+        if (enxRooms != null) {enxPlayerView = new EnxPlayerView(this, EnxPlayerView.ScalingType.SCALE_ASPECT_BALANCED, true);
+            localStream.attachRenderer(enxPlayerView);
+            moderator.addView(localStream.mEnxPlayerView);
             enxRooms.publish(localStream);
             enxRooms.setReconnectObserver(this);
             enxRooms.setCanvasObserver(this);
-            enxRoom.setActiveTalkerViewObserver(this::onActiveTalkerView);
+            enxRoom.setActiveTalkerViewObserver(this);
         }
     }
 
@@ -168,6 +170,11 @@ public class VideoConferenceActivity extends AppCompatActivity
             participant.addView(recyclerView);
 
         }
+    }
+
+    @Override
+    public void onActiveTalkerView(RecyclerView recyclerView, EnxRoom enxRoom) {
+
     }
 
     @Override
@@ -445,9 +452,7 @@ public class VideoConferenceActivity extends AppCompatActivity
         getSupportActionBar().setTitle("QuickApp");
         enxRtc = new EnxRtc(this, this, this);
         localStream = enxRtc.joinRoom(token, getLocalStreamJsonObject(), getReconnectInfo(), new JSONArray());
-        enxPlayerView = new EnxPlayerView(this, EnxPlayerView.ScalingType.SCALE_ASPECT_BALANCED, true);
-        localStream.attachRenderer(enxPlayerView);
-        moderator.addView(enxPlayerView);
+
         progressDialog = new ProgressDialog(this);
     }
 
