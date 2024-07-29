@@ -180,7 +180,7 @@ public class VideoConferenceActivity extends AppCompatActivity
     @Override
     public void onEventError(JSONObject jsonObject) {
         //received when any error occurred for any room event
-        Toast.makeText(VideoConferenceActivity.this, jsonObject.optString("msg"), Toast.LENGTH_SHORT).show();
+        
     }
 
     @Override
