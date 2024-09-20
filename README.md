@@ -5,7 +5,7 @@
 The sample Android App demonstrates the use of EnableX platform Video APIs and Android Toolkit to build 1-to-1 RTC (Real-Time Communication) Application. It allows developers to ramp up on app development by hosting on their own devices.
 
 This App creates a virtual Room on the fly hosted on the Enablex platform using REST calls and uses the Room credentials (i.e. Room Id) to connect to the virtual Room as a Moderator or Participant using a mobile client. The same Room credentials can be shared with others to join the same virtual Room to carry out an RTC (Real-Time Communication) session.
-The sample Android App demonstrates the use of [EnableX platform Server APIs](https://www.enablex.io/developer/video-api/server-api) and [Android Toolkit](https://www.enablex.io/developer/video-api/client-api/android-toolkit/) to build 1-to-1 RTC (Real-Time Communication) Application.  It allows developers to ramp up on app development by hosting on their own devices. 
+The sample Android App demonstrates the use of [EnableX platform Server APIs](https://developer.enablex.io/docs/references/apis/video-api/index/) and [Android Toolkit](https://developer.enablex.io/docs/references/sdks/video-sdk/android-sdk/index/) to build 1-to-1 RTC (Real-Time Communication) Application.  It allows developers to ramp up on app development by hosting on their own devices. 
 > EnableX Developer Center: https://developer.enablex.io/
 
 
@@ -64,20 +64,20 @@ meeting rooms. API Access is given to each Application through the assigned App 
 are to be used as Username and Password respectively to pass as HTTP Basic Authentication header to access Server API.
  
 For this application, the following Server API calls are used: 
-* https://www.enablex.io/developer/video-api/server-api/rooms-route/#get-rooms - To get list of Rooms
-* https://www.enablex.io/developer/video-api/server-api/rooms-route/#get-room-info - To get information of the given Room
-* https://www.enablex.io/developer/video-api/server-api/rooms-route/#create-token - To create Token for the given Room
+* https://developer.enablex.io/docs/references/apis/video-api/content/api-routes/#create-a-room - To get list of Rooms
+* https://developer.enablex.io/docs/references/apis/video-api/content/api-routes/#get-room-information - To get information of the given Room
+* https://developer.enablex.io/docs/references/apis/video-api/content/api-routes/#create-a-token - To create Token for the given Room
 
 To know more about Server API, go to:
-https://www.enablex.io/developer/video-api/server-api
+https://developer.enablex.io/docs/references/apis/video-api/index/
 
 
 ## 3. Android Toolkit
 
 Android App to use Android Toolkit to communicate with EnableX Servers to initiate and manage Real Time Communications.  
 
-* Documentation: https://www.enablex.io/developer/video-api/client-api/android-toolkit/
-* Download: https://www.enablex.io/developer/video-api/client-api/android-toolkit/
+* Documentation: https://developer.enablex.io/docs/references/sdks/video-sdk/android-sdk/index/
+* Download: https://developer.enablex.io/docs/references/sdks/video-sdk/android-sdk/index/
 
 
 ## 4. Application Walk-through
@@ -87,13 +87,13 @@ Android App to use Android Toolkit to communicate with EnableX Servers to initia
 We create a Token for a Room Id to get connected to EnableX Platform to connect to the Virtual Room to carry out a RTC Session.
 
 To create Token, we make use of Server API. Refer following documentation:
-https://www.enablex.io/developer/video-api/server-api/rooms-route/#create-token
+https://developer.enablex.io/docs/references/apis/video-api/content/api-routes/#create-a-token
 
 
 ### 4.2 Connect to a Room, Initiate & Publish Stream
 
 We use the Token to get connected to the Virtual Room. Once connected, we intiate local stream and publish into the room. Refer following documentation for this process:
-https://www.enablex.io/developer/video-api/client-api/android-toolkit/room-connection/#connect-room
+https://developer.enablex.io/docs/references/sdks/video-sdk/android-sdk/room-connection/index/#connect-to-a-room
 
 
 
@@ -110,7 +110,7 @@ localStream!!.attachRenderer(enxPlayerView)
 // Add Player to View
 yourView?.addView(enxPlayerView)
   ```
-More on Player: https://www.enablex.io/developer/video-api/client-api/android-toolkit/play-stream/
+More on Player: https://developer.enablex.io/docs/references/sdks/video-sdk/android-sdk/stream-configuration/content/stream-information/
 
 ### 4.4 Handle Server Events
 
