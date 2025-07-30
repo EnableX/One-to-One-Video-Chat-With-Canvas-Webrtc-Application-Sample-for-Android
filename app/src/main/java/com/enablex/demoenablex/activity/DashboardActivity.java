@@ -50,20 +50,19 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view)
     {
-        switch (view.getId())
-        {
-            case R.id.createRoom:
+        int id=view.getId();
 
-                new WebCall(this, this, null, WebConstants.getRoomId, WebConstants.getRoomIdCode, false,true).execute();
+            if(id== R.id.createRoom) {
 
-                break;
-            case R.id.joinRoom:
+                new WebCall(this, this, null, WebConstants.getRoomId, WebConstants.getRoomIdCode, false, true).execute();
+
+            }
+            else if(id== R.id.joinRoom){
                 room_Id=roomId.getText().toString();
                 if (validations())
                 {
                     validateRoomIDWebCall();
                 }
-                break;
         }
     }
 
@@ -103,9 +102,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        switch (item.getItemId())
-        {
-            case R.id.action_share:
+
+            if(item.getItemId()== R.id.action_share){
                 if (!roomId.getText().toString().equalsIgnoreCase(""))
                 {
                     String shareBody = "Hi,\n" + name.getText().toString() + " has invited you to join room with Room Id " + roomId.getText().toString();
@@ -119,7 +117,6 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 {
                     Toast.makeText(this, "Please create Room first.", Toast.LENGTH_SHORT).show();
                 }
-                break;
         }
         return super.onOptionsItemSelected(item);
     }

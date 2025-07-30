@@ -178,6 +178,11 @@ public class VideoConferenceActivity extends AppCompatActivity
     }
 
     @Override
+    public void onAvailable(Integer integer) {
+
+    }
+
+    @Override
     public void onEventError(JSONObject jsonObject) {
         //received when any error occurred for any room event
         
@@ -204,24 +209,42 @@ public class VideoConferenceActivity extends AppCompatActivity
     }
 
     @Override
+    public void onACKSendMessage(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onMessageDelete(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onACKDeleteMessage(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onMessageUpdate(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onACKUpdateMessage(JSONObject jsonObject) {
+
+    }
+
+    @Override
     public void onUserDataReceived(JSONObject jsonObject) {
         // received when custom data received at room
     }
 
     @Override
-    public void onUserStartTyping(boolean b) {
+    public void onUserStartTyping(JSONObject jsonObject) {
 
     }
 
-    @Override
-    public void onSwitchedUserRole(JSONObject jsonObject) {
-        // received when user switch their role (from moderator  to participant)
-    }
 
-    @Override
-    public void onUserRoleChanged(JSONObject jsonObject) {
-        // received when user role changed successfully
-    }
+
 
     @Override
     public void onConferencessExtended(JSONObject jsonObject) {
@@ -304,11 +327,12 @@ public class VideoConferenceActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.disconnect:
+        int id = view.getId();
+
+            if(id== R.id.disconnect) {
                 roomDisconnect();
-                break;
-            case R.id.mute:
+            }
+            else if(id== R.id.mute) {
                 if (localStream != null) {
                     if (!isAudioMuted) {
                         localStream.muteSelfAudio(true);
@@ -316,8 +340,8 @@ public class VideoConferenceActivity extends AppCompatActivity
                         localStream.muteSelfAudio(false);
                     }
                 }
-                break;
-            case R.id.video:
+            }
+            else if(id== R.id.video) {
                 if (localStream != null) {
                     if (!isVideoMuted) {
                         localStream.muteSelfVideo(true);
@@ -325,8 +349,8 @@ public class VideoConferenceActivity extends AppCompatActivity
                         localStream.muteSelfVideo(false);
                     }
                 }
-                break;
-            case R.id.camera:
+            }
+            else if(id== R.id.camera) {
                 if (localStream != null) {
                     if (!isVideoMuted) {
                         if (isFrontCamera) {
@@ -340,14 +364,14 @@ public class VideoConferenceActivity extends AppCompatActivity
                         }
                     }
                 }
-                break;
-            case R.id.volume:
+            }
+            else if(id== R.id.volume) {
                 if (enxRooms != null) {
                     showRadioButtonDialog();
                 }
-                break;
+            }
 
-            case R.id.canvas:
+            else if(id== R.id.canvas) {
                 if (enxRooms != null) {
                     if (canvas.getText().toString().equalsIgnoreCase("Start Canvas")) {
                         canvas_view.setVisibility(View.VISIBLE);
@@ -357,27 +381,27 @@ public class VideoConferenceActivity extends AppCompatActivity
                     }
 
                 }
-                break;
-            case R.id.change_color:
+            }
+            else if(id== R.id.change_color) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         String colorName = color.getText().toString();
                         switch (colorName) {
                             case "White Color":
-                                canvas_view.setBackgroundColor(getResources().getColor(R.color.picker_color_red));
+                                canvas_view.setBackgroundColor(getResources().getColor(com.enablex.enx_rtc_android.R.color.picker_color_red));
                                 color.setText("Red Color");
                                 break;
                             case "Red Color":
-                                canvas_view.setBackgroundColor(getResources().getColor(R.color.picker_color_blue));
+                                canvas_view.setBackgroundColor(getResources().getColor(com.enablex.enx_rtc_android.R.color.picker_color_blue));
                                 color.setText("Blue Color");
                                 break;
                             case "Blue Color":
-                                canvas_view.setBackgroundColor(getResources().getColor(R.color.green));
+                                canvas_view.setBackgroundColor(getResources().getColor(com.enablex.enx_rtc_android.R.color.green));
                                 color.setText("Green Color");
                                 break;
                             case "Green Color":
-                                canvas_view.setBackgroundColor(getResources().getColor(R.color.white));
+                                canvas_view.setBackgroundColor(getResources().getColor(com.enablex.enx_rtc_android.R.color.white));
                                 color.setText("White Color");
                                 break;
 
@@ -385,7 +409,7 @@ public class VideoConferenceActivity extends AppCompatActivity
 
                     }
                 });
-                break;
+
         }
     }
 
